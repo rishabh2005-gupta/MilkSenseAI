@@ -47,7 +47,7 @@ button {
 
 .brand strong {
   font-family: 'Segoe UI', Arial, sans-serif;
-  font-size: 17px;
+  font-size: 25px;
   font-weight: 800;
   letter-spacing: -.65px;
 }
@@ -58,7 +58,7 @@ button {
 
 .brand small {
   color: #94a097;
-  font-size: 8px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 1.35px;
 }
@@ -87,7 +87,7 @@ button {
 .profile-row strong,
 .demo-note strong {
   overflow: hidden;
-  font-size: 11px;
+  font-size: 19px;
   font-weight: 700;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -97,7 +97,7 @@ button {
 .profile-row small,
 .demo-note small {
   color: #929e95;
-  font-size: 10px;
+  font-size: 18px;
 }
 
 .farm-select > svg {
@@ -120,13 +120,13 @@ button {
   height: 31px;
   color: #286047;
   background: #e8f2e9;
-  font-size: 12px;
+  font-size: 20px;
 }
 
 .nav-caption {
   padding: 0 10px 10px;
   color: #a0aaa3;
-  font-size: 9px;
+  font-size: 17px;
   font-weight: 700;
   letter-spacing: 1.25px;
 }
@@ -148,7 +148,7 @@ button {
   border-radius: 8px;
   background: transparent;
   color: #69776e;
-  font-size: 12px;
+  font-size: 20px;
   text-align: left;
   transition: background .16s ease, color .16s ease;
 }
@@ -177,7 +177,7 @@ button {
   border-radius: 7px;
   background: #fff0e8;
   color: #bd6443;
-  font-size: 10px;
+  font-size: 18px;
   font-weight: 700;
 }
 
@@ -232,11 +232,11 @@ button {
   height: 31px;
   color: #385e4b;
   background: #e7eee8;
-  font-size: 10px;
+  font-size: 18px;
 }
 
 .profile-more {
-  font-size: 18px !important;
+  font-size: 26px !important;
 }
 
 .main-area {
@@ -267,7 +267,7 @@ button {
 .breadcrumb {
   gap: 10px;
   color: #8c9890;
-  font-size: 11px;
+  font-size: 19px;
 }
 
 .breadcrumb strong {
@@ -299,7 +299,7 @@ button {
   outline: 0;
   background: transparent;
   color: #2c4034;
-  font-size: 11px;
+  font-size: 19px;
 }
 
 .global-search input::placeholder,
@@ -313,7 +313,7 @@ button {
   border-radius: 4px;
   color: #a0aaa3;
   font-family: inherit;
-  font-size: 9px;
+  font-size: 17px;
 }
 
 .icon-button {
@@ -363,7 +363,7 @@ button {
   border-radius: 7px;
   background: #fffef7;
   color: #7c7b63;
-  font-size: 10px;
+  font-size: 18px;
 }
 
 .demo-banner .demo-dot {
@@ -408,7 +408,7 @@ button {
 .eyebrow,
 .section-kicker {
   color: #89978d;
-  font-size: 9px;
+  font-size: 17px;
   font-weight: 700;
   letter-spacing: 1.15px;
 }
@@ -417,7 +417,7 @@ button {
   margin: 5px 0;
   color: #23332c;
   font-family: 'Segoe UI', Arial, sans-serif;
-  font-size: 25px;
+  font-size: 33px;
   font-weight: 700;
   letter-spacing: -.75px;
   line-height: 1.25;
@@ -426,7 +426,7 @@ button {
 .page-heading p {
   margin: 0;
   color: #7d8a81;
-  font-size: 11px;
+  font-size: 19px;
 }
 
 .heading-actions {
@@ -445,7 +445,7 @@ button {
   padding: 0 12px;
   border: 1px solid transparent;
   border-radius: 7px;
-  font-size: 10px;
+  font-size: 18px;
   font-weight: 600;
   white-space: nowrap;
   transition: background .16s ease, border-color .16s ease, transform .16s ease;
@@ -518,7 +518,7 @@ button.metric-clickable {
   align-items: center;
   justify-content: space-between;
   color: #738178;
-  font-size: 10px;
+  font-size: 18px;
   font-weight: 500;
 }
 
@@ -557,7 +557,7 @@ button.metric-clickable {
   margin: 7px 0 2px;
   color: #25362e;
   font-family: 'Segoe UI', Arial, sans-serif;
-  font-size: 26px;
+  font-size: 34px;
   font-weight: 700;
   letter-spacing: -.8px;
   line-height: 1.2;
@@ -566,7 +566,7 @@ button.metric-clickable {
 .metric-value small {
   color: #7e8a82;
   font-family: 'Segoe UI', Arial, sans-serif;
-  font-size: 10px;
+  font-size: 18px;
   font-weight: 500;
   letter-spacing: 0;
 }
@@ -577,7 +577,7 @@ button.metric-clickable {
   align-items: center;
   justify-content: space-between;
   color: #98a29a;
-  font-size: 9px;
+  font-size: 17px;
 }
 
 .sparkline {
@@ -597,7 +597,7 @@ button.metric-clickable {
 
 .metric-trend {
   color: #43825f;
-  font-size: 9px;
+  font-size: 17px;
   font-weight: 600;
 }
 
@@ -645,7 +645,7 @@ button.metric-clickable {
   margin: 5px 0 4px;
   color: #2a3c32;
   font-family: 'Segoe UI', Arial, sans-serif;
-  font-size: 14px;
+  font-size: 22px;
   font-weight: 700;
   letter-spacing: -.25px;
 }
@@ -653,7 +653,7 @@ button.metric-clickable {
 .panel-heading p {
   margin: 0;
   color: #8a968e;
-  font-size: 10px;
+  font-size: 18px;
 }
 
 .segmented-control {
@@ -672,7 +672,7 @@ button.metric-clickable {
   border-radius: 5px;
   background: transparent;
   color: #819087;
-  font-size: 9px;
+  font-size: 17px;
   font-weight: 500;
 }
 
@@ -703,7 +703,7 @@ button.metric-clickable {
 
 .chart-info {
   color: #9aa49c;
-  font-size: 9px;
+  font-size: 17px;
 }
 
 .chart-info strong {
@@ -714,13 +714,13 @@ button.metric-clickable {
 .chart-summary {
   margin: 8px 0 -3px 4px;
   color: #8b978f;
-  font-size: 9px;
+  font-size: 17px;
 }
 
 .chart-summary strong {
   color: #2b3f33;
   font-family: 'Segoe UI', Arial, sans-serif;
-  font-size: 19px;
+  font-size: 27px;
   font-weight: 700;
   letter-spacing: -.5px;
 }
@@ -769,7 +769,7 @@ button.metric-clickable {
 .chart-label {
   fill: #97a299;
   font-family: 'Segoe UI', Arial, sans-serif;
-  font-size: 9px;
+  font-size: 17px;
   text-anchor: middle;
 }
 
@@ -779,7 +779,7 @@ button.metric-clickable {
   gap: 15px;
   margin: -1px 2px 0;
   color: #839087;
-  font-size: 9px;
+  font-size: 17px;
 }
 
 .chart-legend > span:not(.chart-unit) {
@@ -826,7 +826,7 @@ button.metric-clickable {
   border-radius: 5px;
   background: #f3f7f3;
   color: #718578;
-  font-size: 8px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: .5px;
 }
@@ -872,20 +872,20 @@ button.metric-clickable {
 .weather-card strong {
   color: #364338;
   font-family: 'Segoe UI', Arial, sans-serif;
-  font-size: 19px;
+  font-size: 27px;
   line-height: 1.1;
 }
 
 .weather-card strong small {
   color: #87918a;
   font-family: 'Segoe UI', Arial, sans-serif;
-  font-size: 9px;
+  font-size: 17px;
   font-weight: 500;
 }
 
 .weather-card > div > span {
   color: #929c93;
-  font-size: 9px;
+  font-size: 17px;
 }
 
 .weather-status {
@@ -893,7 +893,7 @@ button.metric-clickable {
   border-radius: 5px;
   background: #eaf3ea;
   color: #50805c;
-  font-size: 8px;
+  font-size: 16px;
   font-weight: 600;
   white-space: nowrap;
 }
@@ -911,12 +911,12 @@ button.metric-clickable {
   gap: 8px;
   border-bottom: 1px solid #f0f2f0;
   color: #8b978e;
-  font-size: 9px;
+  font-size: 17px;
 }
 
 .condition-row strong {
   color: #536157;
-  font-size: 9px;
+  font-size: 17px;
   font-weight: 600;
   text-align: right;
 }
@@ -950,13 +950,13 @@ button.metric-clickable {
 
 .condition-alert strong {
   color: #5b584a;
-  font-size: 9px;
+  font-size: 17px;
   font-weight: 700;
 }
 
 .condition-alert small {
   color: #9b9686;
-  font-size: 8px;
+  font-size: 16px;
   line-height: 1.5;
 }
 
@@ -995,7 +995,7 @@ button.metric-clickable {
   background: #f1f5f1;
   color: #6f7d73;
   font-family: 'Segoe UI', Arial, sans-serif;
-  font-size: 9px;
+  font-size: 17px;
   font-weight: 600;
   vertical-align: 1px;
 }
@@ -1008,7 +1008,7 @@ button.metric-clickable {
   border: 0;
   background: transparent;
   color: #417b59;
-  font-size: 10px;
+  font-size: 18px;
   font-weight: 600;
 }
 
@@ -1041,7 +1041,7 @@ button.metric-clickable {
   outline: 0;
   background: #fff;
   color: #748077;
-  font-size: 10px;
+  font-size: 18px;
 }
 
 .table-scroll {
@@ -1059,7 +1059,7 @@ button.metric-clickable {
   height: 34px;
   border-bottom: 1px solid #edf0ed;
   color: #97a199;
-  font-size: 9px;
+  font-size: 17px;
   font-weight: 500;
   white-space: nowrap;
 }
@@ -1073,7 +1073,7 @@ button.metric-clickable {
   height: 52px;
   border-bottom: 1px solid #f0f2f0;
   color: #536258;
-  font-size: 10px;
+  font-size: 18px;
   white-space: nowrap;
 }
 
@@ -1111,13 +1111,13 @@ button.metric-clickable {
 
 .cow-identity strong {
   color: #34473a;
-  font-size: 10px;
+  font-size: 18px;
   font-weight: 700;
 }
 
 .cow-identity small {
   color: #9aa49c;
-  font-size: 8px;
+  font-size: 16px;
 }
 
 .cow-avatar {
@@ -1148,7 +1148,7 @@ button.metric-clickable {
 
 .table-muted {
   color: #a0aaa2;
-  font-size: 9px;
+  font-size: 17px;
 }
 
 .change-positive {
@@ -1167,7 +1167,7 @@ button.metric-clickable {
   gap: 5px;
   padding: 4px 7px;
   border-radius: 5px;
-  font-size: 8px;
+  font-size: 16px;
   font-weight: 600;
 }
 
@@ -1221,7 +1221,7 @@ button.metric-clickable {
 
 .sort-button span {
   color: #b4beb6;
-  font-size: 12px;
+  font-size: 20px;
 }
 
 .row-open {
@@ -1242,7 +1242,7 @@ button.metric-clickable {
   justify-content: space-between;
   border-top: 1px solid #f0f2f0;
   color: #909b93;
-  font-size: 9px;
+  font-size: 17px;
 }
 
 .panel-footnote > span {
@@ -1259,7 +1259,7 @@ button.metric-clickable {
 .page-footnote {
   margin-top: 13px;
   color: #a2aaa3;
-  font-size: 9px;
+  font-size: 17px;
   text-align: right;
 }
 
@@ -1284,7 +1284,7 @@ button.metric-clickable {
   border-radius: 7px;
   background: #fffdf7;
   color: #8b8064;
-  font-size: 9px;
+  font-size: 17px;
   font-weight: 600;
 }
 
@@ -1306,7 +1306,7 @@ button.metric-clickable {
 .inline-id {
   color: #8d9a90;
   font-family: 'Segoe UI', Arial, sans-serif;
-  font-size: 10px;
+  font-size: 18px;
   font-weight: 500;
   letter-spacing: 0;
 }
@@ -1331,19 +1331,19 @@ button.metric-clickable {
 
 .prediction-card > span {
   color: #829087;
-  font-size: 9px;
+  font-size: 17px;
 }
 
 .prediction-card strong {
   color: #33463a;
   font-family: 'Segoe UI', Arial, sans-serif;
-  font-size: 19px;
+  font-size: 27px;
   letter-spacing: -.3px;
 }
 
 .prediction-card small {
   color: #a0aaa2;
-  font-size: 8px;
+  font-size: 16px;
 }
 
 .prediction-green {
@@ -1365,7 +1365,7 @@ button.metric-clickable {
 .inline-disclaimer {
   margin: 14px 0 0;
   color: #919b93;
-  font-size: 9px;
+  font-size: 17px;
   line-height: 1.6;
 }
 
@@ -1422,7 +1422,7 @@ button.metric-clickable {
 .alert-copy strong {
   overflow: hidden;
   color: #415246;
-  font-size: 10px;
+  font-size: 18px;
   font-weight: 700;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -1430,14 +1430,14 @@ button.metric-clickable {
 
 .alert-copy strong small {
   color: #9ba59e;
-  font-size: 9px;
+  font-size: 17px;
   font-weight: 500;
 }
 
 .alert-copy > span {
   overflow: hidden;
   color: #8d9990;
-  font-size: 9px;
+  font-size: 17px;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -1447,7 +1447,7 @@ button.metric-clickable {
   border-radius: 5px;
   background: #f8f5ec;
   color: #98845a;
-  font-size: 8px;
+  font-size: 16px;
   font-weight: 600;
 }
 
@@ -1463,7 +1463,7 @@ button.metric-clickable {
   margin: 6px 0;
   color: #2b3d33;
   font-family: 'Segoe UI', Arial, sans-serif;
-  font-size: 16px;
+  font-size: 24px;
   letter-spacing: -.3px;
 }
 
@@ -1471,7 +1471,7 @@ button.metric-clickable {
 .model-status-panel p {
   margin: 0;
   color: #859188;
-  font-size: 10px;
+  font-size: 18px;
   line-height: 1.65;
 }
 
@@ -1508,13 +1508,13 @@ button.metric-clickable {
 
 .upload-dropzone strong {
   color: #3e654c;
-  font-size: 11px;
+  font-size: 19px;
 }
 
 .upload-dropzone > span:not(.upload-icon),
 .upload-dropzone small {
   color: #929e95;
-  font-size: 9px;
+  font-size: 17px;
 }
 
 .import-help {
@@ -1524,13 +1524,13 @@ button.metric-clickable {
   padding-top: 12px;
   border-top: 1px solid #eff2ef;
   color: #8c9890;
-  font-size: 9px;
+  font-size: 17px;
 }
 
 .import-help strong {
   margin-bottom: 2px;
   color: #5e6f63;
-  font-size: 10px;
+  font-size: 18px;
 }
 
 .import-help b {
@@ -1550,13 +1550,13 @@ button.metric-clickable {
   gap: 8px;
   margin: 17px 0 10px;
   color: #8c9990;
-  font-size: 10px;
+  font-size: 18px;
 }
 
 .dataset-count strong {
   color: #34483a;
   font-family: 'Segoe UI', Arial, sans-serif;
-  font-size: 28px;
+  font-size: 36px;
 }
 
 .data-status-panel .condition-row:last-child {
@@ -1606,14 +1606,14 @@ button.metric-clickable {
   margin: 5px 0;
   color: #2e4135;
   font-family: 'Segoe UI', Arial, sans-serif;
-  font-size: 14px;
+  font-size: 22px;
 }
 
 .report-panel > div:nth-child(2) > p {
   max-width: 650px;
   margin: 0;
   color: #88948b;
-  font-size: 10px;
+  font-size: 18px;
   line-height: 1.6;
 }
 
@@ -1636,13 +1636,13 @@ button.metric-clickable {
 .report-stats strong {
   color: #405547;
   font-family: 'Segoe UI', Arial, sans-serif;
-  font-size: 15px;
+  font-size: 23px;
 }
 
 .report-stats span,
 .report-actions > span {
   color: #929d94;
-  font-size: 9px;
+  font-size: 17px;
 }
 
 .report-actions {
@@ -1671,7 +1671,7 @@ button.metric-clickable {
   background: #f2f5ef;
   color: #7a8a73;
   font-family: Georgia, serif;
-  font-size: 13px;
+  font-size: 21px;
   font-style: italic;
 }
 
@@ -1679,13 +1679,13 @@ button.metric-clickable {
   flex: 1;
   margin: 0;
   color: #879289;
-  font-size: 9px;
+  font-size: 17px;
   line-height: 1.6;
 }
 
 .report-note p strong {
   color: #536358;
-  font-size: 10px;
+  font-size: 18px;
 }
 
 .empty-state {
@@ -1711,12 +1711,12 @@ button.metric-clickable {
 
 .empty-state strong {
   color: #536358;
-  font-size: 12px;
+  font-size: 20px;
 }
 
 .empty-state p {
   margin: 0;
-  font-size: 10px;
+  font-size: 18px;
 }
 
 .toast {
@@ -1734,7 +1734,7 @@ button.metric-clickable {
   background: #fff;
   box-shadow: 0 7px 28px rgb(32 58 41 / 12%);
   color: #536358;
-  font-size: 10px;
+  font-size: 18px;
   line-height: 1.5;
 }
 
@@ -1798,14 +1798,14 @@ button.metric-clickable {
 }
 
 .modal-header .cow-identity small {
-  font-size: 8px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: .85px;
 }
 
 .modal-header .cow-identity strong {
   font-family: 'Segoe UI', Arial, sans-serif;
-  font-size: 15px;
+  font-size: 23px;
 }
 
 .cow-facts {
@@ -1825,12 +1825,12 @@ button.metric-clickable {
 .cow-facts small,
 .detail-composition > div > span {
   color: #8b978e;
-  font-size: 9px;
+  font-size: 17px;
 }
 
 .cow-facts strong {
   color: #526357;
-  font-size: 10px;
+  font-size: 18px;
   font-weight: 600;
 }
 
@@ -1839,7 +1839,7 @@ button.metric-clickable {
 }
 
 .detail-chart .chart-summary strong {
-  font-size: 16px;
+  font-size: 24px;
 }
 
 .detail-chart .chart-legend {
@@ -1865,14 +1865,14 @@ button.metric-clickable {
 .detail-composition strong {
   color: #435749;
   font-family: 'Segoe UI', Arial, sans-serif;
-  font-size: 14px;
+  font-size: 22px;
 }
 
 .detail-composition strong small {
   margin-left: 2px;
   color: #8b978e;
   font-family: 'Segoe UI', Arial, sans-serif;
-  font-size: 8px;
+  font-size: 16px;
   font-weight: 500;
 }
 
@@ -1894,14 +1894,14 @@ button.metric-clickable {
 
 .feature-box > div > strong {
   color: #728076;
-  font-size: 9px;
+  font-size: 17px;
   font-weight: 600;
 }
 
 .feature-box p {
   margin: 0;
   color: #8e9990;
-  font-size: 9px;
+  font-size: 17px;
   line-height: 1.6;
 }
 
@@ -1941,7 +1941,7 @@ button.metric-clickable {
   }
 
   .metric-value {
-    font-size: 23px;
+    font-size: 31px;
   }
 }
 
@@ -1968,7 +1968,7 @@ button.metric-clickable {
   }
 
   .metric-value {
-    font-size: 25px;
+    font-size: 33px;
   }
 
   .global-search kbd {
@@ -2019,7 +2019,7 @@ button.metric-clickable {
     flex: 1;
     gap: 6px;
     overflow: hidden;
-    font-size: 10px;
+    font-size: 18px;
     white-space: nowrap;
   }
 
@@ -2075,7 +2075,7 @@ button.metric-clickable {
     gap: 7px;
     margin-bottom: 20px;
     padding: 8px;
-    font-size: 9px;
+    font-size: 17px;
     line-height: 1.55;
   }
 
@@ -2094,7 +2094,7 @@ button.metric-clickable {
   }
 
   .page-heading h1 {
-    font-size: 23px;
+    font-size: 31px;
   }
 
   .heading-actions {
@@ -2115,7 +2115,7 @@ button.metric-clickable {
   }
 
   .metric-value {
-    font-size: 23px;
+    font-size: 31px;
   }
 
   .overview-grid,
@@ -2138,7 +2138,7 @@ button.metric-clickable {
   }
 
   .panel-heading h2 {
-    font-size: 13px;
+    font-size: 21px;
   }
 
   .segmented-control button {
@@ -2146,16 +2146,16 @@ button.metric-clickable {
   }
 
   .chart-info {
-    font-size: 8px;
+    font-size: 16px;
   }
 
   .chart-legend {
     gap: 9px;
-    font-size: 8px;
+    font-size: 16px;
   }
 
   .chart-unit {
-    font-size: 8px;
+    font-size: 16px;
   }
 
   .table-search {
@@ -2201,15 +2201,15 @@ button.metric-clickable {
 @media (max-width: 420px) {
   .metric-value {
     gap: 4px;
-    font-size: 21px;
+    font-size: 29px;
   }
 
   .metric-value small {
-    font-size: 9px;
+    font-size: 17px;
   }
 
   .metric-bottom {
-    font-size: 8px;
+    font-size: 16px;
   }
 
   .sparkline {
@@ -2241,7 +2241,7 @@ button.metric-clickable {
 .chart-empty {
   padding: 18px 12px 0;
   color: #78857d;
-  font-size: 11px;
+  font-size: 19px;
 }
 
 .forecast-dot {
@@ -2258,7 +2258,7 @@ button.metric-clickable {
   border: 1px solid #e8ede8;
   border-radius: 7px;
   color: #748077;
-  font-size: 10px;
+  font-size: 18px;
 }
 
 .dim-filter input {
@@ -2266,7 +2266,7 @@ button.metric-clickable {
   min-width: 0;
   border: 0;
   color: #536258;
-  font-size: 10px;
+  font-size: 18px;
 }
 
 .dim-filter input:focus-visible {
@@ -2294,7 +2294,7 @@ button.metric-clickable {
   display: block;
   margin-top: 8px;
   color: #78857d;
-  font-size: 10px;
+  font-size: 18px;
 }
 
 .model-results {
@@ -2318,13 +2318,13 @@ button.metric-clickable {
   border: 1px solid #edf0ed;
   border-radius: 8px;
   color: #68766d;
-  font-size: 10px;
+  font-size: 18px;
 }
 
 .model-metrics strong,
 .importance-grid > div > strong {
   color: #34493c;
-  font-size: 11px;
+  font-size: 19px;
 }
 
 .model-metrics small {
@@ -2363,7 +2363,7 @@ button.metric-clickable {
   flex-direction: column;
   gap: 6px;
   color: #536258;
-  font-size: 11px;
+  font-size: 19px;
 }
 
 .profile-dialog form input {
@@ -2389,7 +2389,7 @@ button.metric-clickable {
 
 .model-history h2 {
   margin: 6px 0 14px;
-  font-size: 15px;
+  font-size: 23px;
 }
 
 .model-history-list {
@@ -2410,7 +2410,7 @@ button.metric-clickable {
   justify-content: space-between;
   gap: 10px;
   color: #536258;
-  font-size: 10px;
+  font-size: 18px;
 }
 
 .model-history-list time {
@@ -2421,7 +2421,7 @@ button.metric-clickable {
 .model-history > p {
   margin: 0;
   color: #78857d;
-  font-size: 10px;
+  font-size: 18px;
   line-height: 1.6;
 }
 
@@ -2429,7 +2429,7 @@ button.metric-clickable {
   width: auto !important;
   padding: 0 8px;
   color: #4b745b !important;
-  font-size: 10px;
+  font-size: 18px;
 }
 
 .top-avatar {
