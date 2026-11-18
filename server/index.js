@@ -8,7 +8,7 @@ import express from 'express'
 import nodemailer from 'nodemailer'
 import pg from 'pg'
 import { createToken, hashPassword, hashToken, smtpConfigured, verifyPassword } from './auth.js'
-import { normalizeObservation, observationValues, parseCsv } from './data.js'
+import { insertObservation, normalizeObservation, observationValues, parseCsv } from './data.js'
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const port = Number(process.env.PORT ?? 3001)
@@ -312,19 +312,6 @@ app.post('/api/auth/logout', requireAuth, asyncRoute(async (request, response) =
   response.status(204).end()
 }))
 
-const observationColumns = [
-  'farm_id', 'cow_id', 'cow_name', 'breed', 'recorded_at',
-  'dim', 'dmy', 'mf', 'fc', 'pc', 'mt', 'rt', 'tmax', 'tmin', 'rhmax', 'rhmin', 'vp', 'vpd', 'thi_max', 'thi_min',
-]
-const insertObservation = `INSERT INTO observations (${observationColumns.join(', ')})
-  VALUES (${observationColumns.map((_, index) => `$${index + 1}`).join(', ')})
-  ON CONFLICT (farm_id, cow_id, recorded_at) DO UPDATE SET
-    cow_name = EXCLUDED.cow_name, breed = EXCLUDED.breed,
-    dim = EXCLUDED.dim, dmy = EXCLUDED.dmy, mf = EXCLUDED.mf, fc = EXCLUDED.fc, pc = EXCLUDED.pc,
-    mt = EXCLUDED.mt, rt = EXCLUDED.rt, tmax = EXCLUDED.tmax, tmin = EXCLUDED.tmin,
-    rhmax = EXCLUDED.rhmax, rhmin = EXCLUDED.rhmin, vp = EXCLUDED.vp, vpd = EXCLUDED.vpd,
-    thi_max = EXCLUDED.thi_max, thi_min = EXCLUDED.thi_min, created_at = now()`
-
 app.post('/api/data/import', requireAuth, asyncRoute(async (request, response) => {
   let observations = request.body?.observations
   try {
@@ -441,7 +428,7 @@ app.get('/api/predictions', requireAuth, asyncRoute(async (request, response) =>
   const cowId = request.query.cowId ? String(request.query.cowId) : null
   const result = await pool.query(
     `SELECT cow_id AS "cowId", target_date AS date, dmy, mf, fc, pc, generated_at AS "generatedAt"
-       FROM predictions WHERE farm_id = $1 AND target_date >= CURRENT_DATE AND target_date < CURRENT_DATE + interval '28 days'
+       FROM predictions WHERE farm_id = $1 AND target_date >= CURRENT_DATE AND target_date <= CURRENT_DATE + interval '28 days'
         AND ($2::text IS NULL OR cow_id = $2)
       ORDER BY target_date, cow_id`,
     [request.user.farmId, cowId],
@@ -614,18 +601,32 @@ function csvEscape(value) {
 app.get('/api/reports/export', requireAuth, asyncRoute(async (request, response) => {
   const freshModel = await modelFresh(request.user.farmId)
   const result = await pool.query(
-    `SELECT DISTINCT ON (o.cow_id)
-       o.cow_id, COALESCE(o.cow_name, 'Cow ' || o.cow_id) AS cow_name, o.recorded_at, o.dim, o.dmy, o.mf, o.fc, o.pc, o.thi_max,
-       p.dmy AS forecast_dmy, p.mf AS forecast_mf, p.fc AS forecast_fc, p.pc AS forecast_pc
-     FROM observations o LEFT JOIN LATERAL (
-       SELECT dmy, mf, fc, pc FROM predictions WHERE farm_id = o.farm_id AND cow_id = o.cow_id
-        AND target_date >= CURRENT_DATE AND $2::boolean ORDER BY target_date LIMIT 1
-     ) p ON true
-     WHERE o.farm_id = $1 ORDER BY o.cow_id, o.recorded_at DESC`,
+    `WITH latest_observations AS (
+       SELECT DISTINCT ON (o.cow_id)
+         o.farm_id, o.cow_id, COALESCE(o.cow_name, 'Cow ' || o.cow_id) AS cow_name,
+         o.recorded_at, o.dim, o.dmy, o.mf, o.fc, o.pc, o.thi_max
+       FROM observations o
+       WHERE o.farm_id = $1
+       ORDER BY o.cow_id, o.recorded_at DESC
+     )
+     SELECT o.cow_id, o.cow_name, o.recorded_at, o.dim, o.dmy, o.mf, o.fc, o.pc, o.thi_max,
+       p.target_date AS prediction_date, p.dmy AS forecast_dmy, p.mf AS forecast_mf,
+       p.fc AS forecast_fc, p.pc AS forecast_pc
+     FROM latest_observations o
+     LEFT JOIN predictions p ON p.farm_id = o.farm_id AND p.cow_id = o.cow_id
+       AND p.target_date >= CURRENT_DATE
+       AND p.target_date <= CURRENT_DATE + interval '28 days'
+       AND $2::boolean
+     ORDER BY o.cow_id, p.target_date`,
     [request.user.farmId, freshModel],
   )
-  const headers = ['cow_id', 'name', 'observation_date', 'dim', 'daily_milk_yield_kg', 'milking_frequency_per_day', 'fat_percent', 'protein_percent', 'thi_max', 'predicted_dmy_kg', 'predicted_mf', 'predicted_fat_percent', 'predicted_protein_percent']
-  const lines = result.rows.map((row) => [row.cow_id, row.cow_name, row.recorded_at?.toISOString?.().slice(0, 10) ?? row.recorded_at, row.dim, row.dmy, row.mf, row.fc, row.pc, row.thi_max, row.forecast_dmy, row.forecast_mf, row.forecast_fc, row.forecast_pc])
+  const headers = ['cow_id', 'name', 'observation_date', 'dim', 'daily_milk_yield_kg', 'milking_frequency_per_day', 'fat_percent', 'protein_percent', 'thi_max', 'prediction_date', 'predicted_dmy_kg', 'predicted_mf', 'predicted_fat_percent', 'predicted_protein_percent']
+  const lines = result.rows.map((row) => [
+    row.cow_id, row.cow_name, row.recorded_at?.toISOString?.().slice(0, 10) ?? row.recorded_at,
+    row.dim, row.dmy, row.mf, row.fc, row.pc, row.thi_max,
+    row.prediction_date?.toISOString?.().slice(0, 10) ?? row.prediction_date,
+    row.forecast_dmy, row.forecast_mf, row.forecast_fc, row.forecast_pc,
+  ])
   response.type('text/csv')
   response.setHeader('Content-Disposition', 'attachment; filename="milksense-herd-report.csv"')
   response.send([headers, ...lines].map((line) => line.map(csvEscape).join(',')).join('\r\n'))

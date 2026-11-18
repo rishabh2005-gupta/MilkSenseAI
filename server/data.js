@@ -1,26 +1,11 @@
-const numericFields = ['dim', 'dmy', 'mf', 'fc', 'pc', 'mt', 'rt', 'tmax', 'tmin', 'rhmax', 'rhmin', 'vp', 'vpd', 'thiMax', 'thiMin']
+import { observationSchema } from '../shared/observation-schema.js'
 
-const aliases = {
-  cowId: ['cowid', 'id', 'animalid', 'rfid'],
-  cowName: ['name', 'cowname', 'animalname'],
-  breed: ['breed'],
-  recordedAt: ['date', 'datetime', 'timestamp', 'recordedat', 'recorddate'],
-  dim: ['dim', 'daysinmilk'],
-  dmy: ['dmy', 'dailymilkyield', 'milkyield'],
-  mf: ['mf', 'milkingfrequency', 'milkingsperday'],
-  fc: ['fc', 'fat', 'fatcontent', 'fatcontentpercent'],
-  pc: ['pc', 'protein', 'proteincontent', 'proteincontentpercent'],
-  mt: ['mt', 'milkingtemperature', 'milktemperature'],
-  rt: ['rt', 'ruminationtime'],
-  tmax: ['tmax', 'maxtemperature'],
-  tmin: ['tmin', 'mintemperature'],
-  rhmax: ['rhmax', 'maxrelativehumidity'],
-  rhmin: ['rhmin', 'minrelativehumidity'],
-  vp: ['vp', 'vapourpressure', 'vaporpressure'],
-  vpd: ['vpd', 'vapourpressuredeficit', 'vaporpressuredeficit'],
-  thiMax: ['thimax', 'thi', 'temperaturehumidityindex'],
-  thiMin: ['thimin'],
-}
+const numericFields = observationSchema
+  .filter((field) => field.kind === 'number')
+  .map((field) => field.key)
+const aliases = Object.fromEntries(
+  observationSchema.map((field) => [field.key, field.aliases]),
+)
 
 const headerKey = (value) => String(value ?? '').toLowerCase().replace(/[^a-z0-9]/g, '')
 
@@ -63,7 +48,9 @@ export function parseCsv(text) {
   const columnIndexes = Object.fromEntries(
     Object.entries(aliases).map(([field, names]) => [field, headers.findIndex((header) => names.includes(header))]),
   )
-  const required = ['cowId', 'recordedAt', 'dmy', 'mf', 'fc', 'pc', 'dim']
+  const required = observationSchema
+    .filter((field) => field.required)
+    .map((field) => field.key)
   const missing = required.filter((field) => columnIndexes[field] < 0)
   if (missing.length) throw new Error(`Missing required columns: ${missing.map((field) => aliases[field][0]).join(', ')}.`)
   return rows.slice(1).map((values, offset) => {
@@ -96,8 +83,12 @@ export function normalizeObservation(input) {
     if (value !== null && !Number.isFinite(value)) throw new Error(`${field} must be a finite number.`)
     normalized[field] = value
   }
-  for (const field of ['dim', 'dmy', 'mf', 'fc', 'pc']) {
-    if (normalized[field] === null) throw new Error(`${field} is required.`)
+  for (const field of observationSchema.filter(
+    (item) => item.required && item.kind === 'number',
+  )) {
+    if (normalized[field.key] === null) {
+      throw new Error(`${field.key} is required.`)
+    }
   }
   if (normalized.dim < 0 || normalized.dmy < 0 || normalized.mf < 0) {
     throw new Error('DIM, DMY, and MF cannot be negative.')
@@ -120,10 +111,21 @@ export function normalizeObservation(input) {
 export function observationValues(observation) {
   return [
     observation.farmId,
-    observation.cowId,
-    observation.cowName,
-    observation.breed,
-    observation.recordedAt,
-    ...numericFields.map((field) => observation[field]),
+    ...observationSchema.map((field) => observation[field.key]),
   ]
 }
+
+const observationColumns = observationSchema.map(
+  (field) => field.databaseColumn,
+)
+const updateColumns = observationSchema
+  .filter((field) => !['cowId', 'recordedAt'].includes(field.key))
+  .map(
+    (field) =>
+      `${field.databaseColumn} = EXCLUDED.${field.databaseColumn}`,
+  )
+
+export const insertObservation = `INSERT INTO observations (farm_id, ${observationColumns.join(', ')})
+  VALUES (${observationColumns.map((_, index) => `$${index + 2}`).join(', ')})
+  ON CONFLICT (farm_id, cow_id, recorded_at) DO UPDATE SET
+    ${updateColumns.join(', ')}, created_at = now()`
