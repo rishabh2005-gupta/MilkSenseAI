@@ -48,3 +48,28 @@ In hosted deployments, terminate HTTPS at the hosting platform or trusted revers
 ## Project estimate
 
 The accompanying project-estimation report gives an approximate size of 6,000 LOC, 15.8 person-months of effort, and a 7.1-month full-scale schedule (about 3 months for the academic prototype). It estimates peak implementation staffing at 3–4 people and a total project cost of approximately ₹2,65,000–₹2,71,000 including one-time hardware. These are planning estimates, not measured project totals or runtime guarantees.
+
+
+| Abbreviation | Definition |
+| :--- | :--- |
+| API | Application Programming Interface |
+| BM | Body mass (kg) |
+| DIM | Days in milk |
+| DMI | Dry matter intake (kg d⁻¹) |
+| DMY | Daily milk yield (kg cow⁻¹ d⁻¹) |
+| DOY | Day of year |
+| FC | Fat content (%) |
+| MF | Milking frequency |
+| MT | Milk temperature (°C) |
+| PC | Protein content (%) |
+| PLF | Precision livestock farming |
+| RF | Random forest |
+| RFID | Radio frequency identification |
+| RHmax / RHmin | Maximum / minimum relative humidity (%) |
+| RMS | Robotic milking system |
+| RT | Rumination time (min) |
+| Tmax / Tmin | Maximum / minimum temperature (°C) |
+| THImax / THImin | Maximum / minimum temperature-humidity index |
+| VP | Vapour pressure (hPa) |
+| VPD | Deficit vapour pressure (hPa) |
+| XGBoost | Extreme Gradient Boosting algorithm |
