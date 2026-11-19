@@ -115,17 +115,3 @@ export function observationValues(observation) {
   ]
 }
 
-const observationColumns = observationSchema.map(
-  (field) => field.databaseColumn,
-)
-const updateColumns = observationSchema
-  .filter((field) => !['cowId', 'recordedAt'].includes(field.key))
-  .map(
-    (field) =>
-      `${field.databaseColumn} = EXCLUDED.${field.databaseColumn}`,
-  )
-
-export const insertObservation = `INSERT INTO observations (farm_id, ${observationColumns.join(', ')})
-  VALUES (${observationColumns.map((_, index) => `$${index + 2}`).join(', ')})
-  ON CONFLICT (farm_id, cow_id, recorded_at) DO UPDATE SET
-    ${updateColumns.join(', ')}, created_at = now()`
