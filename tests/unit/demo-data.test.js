@@ -1,8 +1,8 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { createDemoObservations, serializeDemoCsv } from '../server/demo-data.js'
-import { parseCsv } from '../server/data.js'
-import { observationSchema } from '../shared/observation-schema.js'
+import { createDemoObservations, serializeDemoCsv } from '../../server/demo-data.js'
+import { parseCsv } from '../../server/data.js'
+import { observationSchema } from '../../shared/observation-schema.js'
 
 test('synthetic demo data follows the observation schema and spans consecutive days per cow', () => {
   const observations = createDemoObservations({

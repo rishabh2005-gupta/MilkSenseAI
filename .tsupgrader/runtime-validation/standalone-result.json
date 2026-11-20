@@ -1,0 +1,138 @@
+{
+  "planHash": "06481e665f696dddbe402f9b54541cd983db1a2f901d9353feb219bb92e65b4f",
+  "phase": "standalone",
+  "recordedAtUtc": "2026-11-20T09:50:00.5658360Z",
+  "retryCount": 0,
+  "resetBaseline": false,
+  "complete": true,
+  "result": {
+    "setupSucceeded": true,
+    "setupDurationMs": 13925,
+    "setupFailureOutput": null,
+    "assertions": [
+      {
+        "name": "production-build",
+        "kind": "process",
+        "verificationMethod": "exit-code",
+        "passed": true,
+        "timedOut": false,
+        "skipped": false,
+        "skippedReason": null,
+        "exitCode": 0,
+        "outputSample": "\r\n\u003E milksense-ai@0.0.0 build\r\n\u003E vite build\r\n\r\n\u001B[36mvite v8.3.8 \u001B[32mbuilding client environment for production...\u001B[36m\u001B[39m\r\ntransforming...\r\n\u2713 33 modules transformed.\r\nrendering chunks...\r\ncomputing gzip size...\r\ndist/index.html                   0.55 kB \u2502 gzip:  0.33 kB\r\ndist/assets/index-DzkG8khb.css   31.24 kB \u2502 gzip:  7.23 kB\r\ndist/assets/index-DTc51pBN.js   242.97 kB \u2502 gzip: 73.62 kB\r\n\r\n\u001B[32m\u2713 built in 1.15s\u001B[39m\r\n",
+        "durationMs": 4450
+      },
+      {
+        "name": "tests-pass",
+        "kind": "process",
+        "verificationMethod": "test-results",
+        "passed": true,
+        "timedOut": false,
+        "skipped": false,
+        "skippedReason": null,
+        "exitCode": 0,
+        "outputSample": "\r\n\u003E milksense-ai@0.0.0 test\r\n\u003E node --test\r\n\r\n\u2714 health endpoint responds through the HTTP server and checks database connectivity (45.6642ms)\r\n\u2714 protected API rejects unauthenticated requests before accessing protected data (13.6892ms)\r\n\u2714 authenticated CSV import validates and persists observations in one transaction (211.9087ms)\r\n\u2714 authenticated CSV import returns validation errors without opening a transaction (6.7849ms)\r\n\u2714 CSV import maps RMS and climate headers and calculates THI (5.9261ms)\r\n\u2714 CSV import preserves quoted values and rejects rows without required history fields (1.4433ms)\r\n\u2714 observation normalization rejects non-finite values and invalid humidity (3.1496ms)\r\n\u2714 synthetic demo data follows the observation schema and spans consecutive days per cow (25.7709ms)\r\n\u2714 generated demo CSV round-trips through the production CSV parser (11.4496ms)\r\n\u2139 tests 9\r\n\u2139 suites 0\r\n\u2139 pass 9\r\n\u2139 fail 0\r\n\u2139 cancelled 0\r\n\u2139 skipped 0\r\n\u2139 todo 0\r\n\u2139 duration_ms 1538.5669\r\n",
+        "durationMs": 3057,
+        "testResults": {
+          "testFramework": "unknown",
+          "runnerDetectedFrom": "none",
+          "testsTotal": 0,
+          "testsPassed": 0,
+          "testsFailed": 0,
+          "testsSkipped": 0,
+          "parseFailed": true
+        }
+      },
+      {
+        "name": "lint-pass",
+        "kind": "process",
+        "verificationMethod": "exit-code",
+        "passed": true,
+        "timedOut": false,
+        "skipped": false,
+        "skippedReason": null,
+        "exitCode": 0,
+        "outputSample": "\r\n\u003E milksense-ai@0.0.0 lint\r\n\u003E oxlint\r\n\r\n",
+        "durationMs": 1885
+      },
+      {
+        "name": "dashboard-home-responds",
+        "kind": "http-probe",
+        "verificationMethod": "http-status",
+        "passed": true,
+        "timedOut": false,
+        "skipped": false,
+        "skippedReason": null,
+        "exitCode": null,
+        "outputSample": "HTTP 200\n\u003C!doctype html\u003E\n\u003Chtml lang=\u0022en\u0022\u003E\n  \u003Chead\u003E\n    \u003Cscript type=\u0022module\u0022\u003Eimport { injectIntoGlobalHook } from \u0022/@react-refresh\u0022;\ninjectIntoGlobalHook(window);\nwindow.$RefreshReg$ = () =\u003E {};\nwindow.$RefreshSig$ = () =\u003E (type) =\u003E type;\u003C/script\u003E\n\n    \u003Cscript type=\u0022module\u0022 src=\u0022/@vite/client\u0022\u003E\u003C/script\u003E\n\n    \u003Cmeta charset=\u0022UTF-8\u0022 /\u003E\n    \u003Cmeta name=\u0022viewport\u0022 content=\u0022width=device-width, initial-scale=1.0\u0022 /\u003E\n    \u003Cmeta name=\u0022theme-color\u0022 content=\u0022#f6f8f6\u0022 /\u003E\n    \u003Cmeta name=\u0022description\u0022 content=\u0022MilkSense AI dairy herd prediction dashboard\u0022 /\u003E\n    \u003Ctitle\u003EMilkSense AI | Dairy intelligence\u003C/title\u003E\n  \u003C/head\u003E\n  \u003Cbody\u003E\n    \u003Cdiv id=\u0022root\u0022\u003E\u003C/div\u003E\n    \u003Cscript type=\u0022module\u0022 src=\u0022/src/main.jsx\u0022\u003E\u003C/script\u003E\n  \u003C/body\u003E\n\u003C/html\u003E\n\n--- server output ---\n\r\n\u003E milksense-ai@0.0.0 dev\r\n\u003E vite --host 127.0.0.1 --port 5173 --strictPort\r\n\r\n\r\n  \u001B[32m\u001B[1mVITE\u001B[22m v8.3.8\u001B[39m  \u001B[2mready in \u001B[0m\u001B[1m430\u001B[22m\u001B[2m\u001B[0m ms\u001B[22m\r\n\r\n  \u001B[32m\u279C\u001B[39m  \u001B[1mLocal\u001B[22m:   \u001B[36mhttp://127.0.0.1:\u001B[1m5173\u001B[22m/\u001B[39m\r\n",
+        "durationMs": 2639
+      }
+    ],
+    "executions": [
+      {
+        "source": "setup[0]",
+        "resolvedExecutable": "C:\\Program Files\\nodejs\\npm.CMD",
+        "args": [
+          "ci"
+        ],
+        "cwd": "C:\\Users\\Risha\\Documents\\MilkSenseAI\\Web developement",
+        "env": {},
+        "prependPath": [],
+        "platform": "win32"
+      },
+      {
+        "source": "production-build",
+        "resolvedExecutable": "C:\\Program Files\\nodejs\\npm.CMD",
+        "args": [
+          "run",
+          "build"
+        ],
+        "cwd": "C:\\Users\\Risha\\Documents\\MilkSenseAI\\Web developement",
+        "env": {},
+        "prependPath": [],
+        "platform": "win32"
+      },
+      {
+        "source": "tests-pass",
+        "resolvedExecutable": "C:\\Program Files\\nodejs\\npm.CMD",
+        "args": [
+          "test"
+        ],
+        "cwd": "C:\\Users\\Risha\\Documents\\MilkSenseAI\\Web developement",
+        "env": {},
+        "prependPath": [],
+        "platform": "win32"
+      },
+      {
+        "source": "lint-pass",
+        "resolvedExecutable": "C:\\Program Files\\nodejs\\npm.CMD",
+        "args": [
+          "run",
+          "lint"
+        ],
+        "cwd": "C:\\Users\\Risha\\Documents\\MilkSenseAI\\Web developement",
+        "env": {},
+        "prependPath": [],
+        "platform": "win32"
+      },
+      {
+        "source": "dashboard-home-responds",
+        "resolvedExecutable": "C:\\Program Files\\nodejs\\npm.CMD",
+        "args": [
+          "run",
+          "dev",
+          "--",
+          "--host",
+          "127.0.0.1",
+          "--port",
+          "5173",
+          "--strictPort"
+        ],
+        "cwd": "C:\\Users\\Risha\\Documents\\MilkSenseAI\\Web developement",
+        "env": {},
+        "prependPath": [],
+        "platform": "win32"
+      }
+    ]
+  }
+}

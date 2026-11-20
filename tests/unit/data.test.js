@@ -1,6 +1,6 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { normalizeObservation, parseCsv } from '../server/data.js'
+import { normalizeObservation, parseCsv } from '../../server/data.js'
 
 test('CSV import maps RMS and climate headers and calculates THI', () => {
   const [observation] = parseCsv(

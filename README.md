@@ -37,7 +37,15 @@ The repository includes `data/demo-observations.csv`: 480 synthetic observations
 - To load the same demo records directly into an existing account's farm, run `node server/seed-demo-data.js <existing-account-email>` with the API's `.env` database settings configured. The script updates matching farm/cow/date records and does not create an account.
 - Alternatively, import the CSV through **Data & models**. Do not mix the demo records with real production measurements.
 
-Run `npm test` for API data-processing tests and `npm run test:ml` for Python feature-engineering and model tests.
+## Testing
+
+JavaScript tests use Node's built-in test runner and are organized by scope:
+
+- `tests/unit/` covers CSV normalization and synthetic demo-data behavior.
+- `tests/integration/` exercises the HTTP API, authentication boundary, and CSV import transaction using an injected PostgreSQL adapter. These tests do not require a running database or SMTP service.
+- `ml/tests/` covers Python feature engineering and model training.
+
+Run `npm test` for all JavaScript tests, `npm run test:unit` or `npm run test:integration` for one suite, and `npm run test:ml` for the Python suite.
 
 ## Backups and deployment
 
